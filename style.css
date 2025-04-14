@@ -1,5 +1,791 @@
-@charset "UTF-8";
+@charset "utf-8";
 
-h1{
-    font-style: italic;
+/* 基本レイアウト ここから↓ */
+@import url(common.css);
+
+/* ↓TOPのmain設定 */
+/* #top_mainvisual {
+    background-image: url(../img/top/top_mainvisual.png);
+    background-repeat: no-repeat;
+    width: 1440px;
+    height: 568px;
+    margin: 0 auto;
+} */
+/* メニューアイテムのホバースタイル */
+.DropdownMenu {
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+}
+
+.Menu {
+    box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    display: flex;
+}
+
+.Menu>*+* {
+    border-left: 1px solid #888;
+}
+
+.Menu-Item {
+    position: relative;
+    flex: 1;
+    cursor: pointer;
+}
+
+.Menu-Item-Label {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 50px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    color: #333;
+}
+
+.SubMenu {
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+    top: 40px;
+    width: 100%;
+    background-color: #6ba6e7;
+}
+
+.SubMenu-Item {
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.SubMenu>*+* {
+    border-top: 1px solid #fff;
+}
+
+.Menu-Item:hover .SubMenu {
+    transition: all 0.3s;
+    visibility: visible;
+    transform: translateY(10px);
+}
+
+/* ↓header画像の上のキャッチコピー画像 */
+.top_mainvisual h2 {
+    position: relative;
+    text-align: left;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #8b9faf;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.inner {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .news_list_item a {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .news_list_item a {
+        font-size: 14px;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    .arrow {
+        display: none;
+    }
+
+    .news_list_item a {
+        padding-right: 0;
+    }
+
+    .top_lunchtime {
+        margin: 10px 0;
+        padding: 0 auto;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        background-size: cover;
+    }
+
+    #pagetop {
+        width: 80px;
+        margin-bottom: 100px;
+    }
+
+    body {
+        font-size: 14px;
+        /* スマホ用に文字を小さめに調整 */
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    /* #top_mainvisual {
+        background-image: url(../img/top/top_mainvisual.png);
+        background-repeat: no-repeat;
+        width: auto;
+        height: 250px;
+        text-align: center;
+        margin: auto;
+        background-size: cover
+    } */
+
+    .sub_ttl,
+    .menu_top {
+        align-items: left;
+    }
+
+    header img {
+        width: 40%;
+    }
+
+    #menu article {
+        margin-top: 10px;
+        padding-top: 300px;
+    }
+
+
+    body p,
+    ul li {
+        font-size: small;
+    }
+
+    .coffee_text dt,
+    dd {
+        font-size: smaller;
+    }
+
+    .tea_text dt,
+    dd {
+        font-size: smaller;
+    }
+
+    #menu p {
+        font-size: x-small;
+    }
+
+    #menu_tab {
+        display: flex;
+        justify-content: center;
+    }
+
+
+    .s-thanks_body p {
+        font-size: smaller;
+    }
+
+    .s-thanks_body h3 {
+        font-size: 13px;
+        line-height: 12px;
+        margin: 0;
+    }
+
+    .inner .sub_ttl img {
+        width: 60%;
+    }
+
+    .foot_box p,
+    dt,
+    dd {
+        font-size: x-small;
+        margin: 15px;
+    }
+
+    .box_s-thanks p {
+        font-size: x-small;
+    }
+
+    .h3_subtext h3,
+    .s-thanks_text {
+        font-size: smaller;
+        margin: none;
+    }
+
+    #top {
+        text-align: center;
+
+    }
+
+    .s-thanks_main {
+        padding: 20px 0;
+    }
+
+    .box_s-thanks img {
+        size: 120%;
+    }
+
+    .s-thanks_main .inner {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    .cocept_contents {
+        margin: auto;
+    }
+
+    .owners {
+        font-size: smaller;
+        margin: 0;
+    }
+
+    .owners_left {
+        width: 50%;
+    }
+
+    .foot_text {
+        font-size: small;
+    }
+}
+
+
+/* ↓スペシャルサンクス*/
+.s-thanks {
+    text-align: center;
+    margin: 50px auto;
+    font-size: 18px;
+    padding-bottom: 20px;
+}
+
+.s-thanks img {
+    margin-bottom: 20px;
+}
+
+.s-thanks p {
+    margin: 25px;
+    color: #8b9faf;
+}
+
+.s-thanks_text p {
+    flood-color: #8b9faf;
+    line-height: 3em;
+    margin-top: 50px;
+
+}
+
+.h3_subtext {
+    line-height: 3em;
+}
+
+/* 【ロングbtn4メニュー】 */
+.long_btn a {
+    max-width: 1440px;
+    height: 120px;
+    margin: 0px auto;
+    display: block;
+    overflow: hidden;
+    text-align: left;
+    padding-left: 100px;
+}
+
+/* challenge1 long */
+.lbtn_challenge1 a {
+    margin: auto;
+}
+
+
+.lbtn_challenge1 {
+    background-color: #8b9faf;
+    position: relative;
+}
+
+.left {
+    position: absolute;
+}
+
+.arrow {
+    position: absolute;
+    right: 0;
+    margin-right: 200px;
+    margin-top: 50px;
+}
+
+.lbtn_challenge2 {
+    background-color: #a1b8c9;
+}
+
+.lbtn_challenge3 {
+    background-color: #a9c3d3;
+}
+
+.lbtn_challenge4 {
+    background-color: #c3cfdd;
+}
+
+.arrow {
+    text-align: right;
+    width: 80px;
+    justify-content: space-evenly;
+}
+
+/* TOP下方イメージフォト */
+.imagephoto {
+    width: 100%;
+    text-align: center;
+    margin: 50px 0 0 0;
+    opacity: 60%;
+}
+
+/* ↓ここから【profileページ】↓ */
+
+#profile_mainvisual {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    opacity: 0.2;
+}
+
+
+
+/* ↓ここからChallengesページ↓ */
+#challenge-common {
+    /* max-width: 1440px; */
+    text-align: center;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 auto;
+    text-align: center;
+}
+
+#works {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.title {
+    margin: 10px;
+}
+
+.challenges_contents {
+    margin: auto;
+    width: auto;
+    text-align: center;
+}
+
+.works-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* 均等配置 */
+    gap: 20px;
+    /* アイテム間のスペース */
+    margin: 50px auto;
+}
+
+.works-item {
+    width: calc(50% - 10px);
+    /* 2列になるように調整 */
+    flex-basis: 50%;
+    /* 必ず2つずつ並べる */
+    margin-bottom: 20px;
+    /* 下の要素との間隔 */
+    color: #8b9faf;
+}
+
+.works-item:hover {
+    opacity: .9;
+}
+
+/* 1行目のアイテム */
+.works-item:nth-child(1),
+.works-item:nth-child(2) {
+    order: 1;
+}
+
+/* 2行目のアイテム */
+.works-item:nth-child(3),
+.works-item:nth-child(4) {
+    order: 2;
+}
+
+/* 2番目のアイテムの後で改行させる */
+.works-item:nth-child(2) {
+    margin-right: 0;
+    /* 右の余白をなくす */
+}
+
+.works-item:nth-child(3) {
+    clear: left;
+    /* 3番目を新しい行に強制 */
+}
+
+/* 2つ目の要素の後に強制的に改行を入れる */
+.works-item:nth-child(2)::after {
+    content: "";
+    display: block;
+    width: 100%;
+}
+
+.works-img img {
+    border: 1px solid #e6e6e6;
+}
+
+.works-name {
+    font-size: 12px;
+    font-weight: normal;
+    margin-top: 8px;
+}
+
+.works-info {
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+/* ↓ここからchallenge1～4詳細ページ↓ */
+div#Main {
+    width: 100%;
+    word-wrap: break-word;
+    /* 長い単語を折り返す */
+    overflow-wrap: break-word;
+    margin: 10px auto;
+}
+
+div#Main h2 {
+    font-size: 105%;
+    font-weight: bold;
+    color: #8b9faf;
+}
+
+div#Main p {
+    color: #8b9faf;
+    margin-top: 10px;
+}
+
+div#Main table {
+    width: 60%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border: 0 none;
+}
+
+div#Main table tr th {
+    width: 15%;
+    padding: 10px 1em;
+    background: #f4f4f4;
+    border: 1px solid #c3cfdd;
+    text-align: left;
+    vertical-align: top;
+    color: #8b9faf;
+}
+
+div#Main table tr td {
+    width: 85%;
+    padding: 10px 1em;
+    border: 1px solid #c3cfdd;
+    text-align: left;
+    vertical-align: top;
+    color: #8b9faf;
+    font-size: 12px;
+}
+
+div#Main table tr td ul {
+    padding: 0 0 0 8px;
+    margin: 0 0 0 8px;
+}
+
+div#Main table tr td ol {
+    padding: 0 0 0 8px;
+    margin: 0 0 0 8px;
+}
+
+.btn {
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid #8b9faf;
+    text-align: center;
+    max-width: 200px;
+    margin: 20px auto;
+    font-family: 'Noto Serif JP', serif;
+    margin-bottom: 50px;
+}
+
+.btn a {
+    color: #8b9faf;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.btn15 {
+    position: relative;
+    background: none;
+}
+
+.btn15 a {
+    background: #141516;
+}
+
+.btn15::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: -6px;
+    bottom: -10px;
+    background: repeating-linear-gradient(135deg, #c3cfdd, #c3cfdd 3px, transparent 3px, transparent 7px);
+    z-index: -1;
+}
+
+
+.btn6 {
+    position: relative;
+    border: none;
+    border-bottom: 1px solid #a9c3d3;
+    width: 300px;
+    max-width: 90%;
+}
+
+.btn6::before {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: #a9c3d3;
+    rotate: 40deg;
+    position: absolute;
+    right: -3px;
+    bottom: 9px;
+}
+
+.btn77 {
+    position: relative;
+    border: none;
+    border-bottom: 1px dotted #a9c3d3;
+    width: 300px;
+    max-width: 90%;
+}
+
+.btn77::before {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: #a9c3d3;
+    rotate: -40deg;
+    position: absolute;
+    left: -3px;
+    bottom: 9px;
+}
+
+.btn-wrapper {
+    display: flex;
+    justify-content: space-between;
+    /* 両端に配置 */
+    align-items: center;
+    gap: 20px;
+    /* ボタン同士の間隔を調整（任意） */
+    max-width: 100%;
+    flex-wrap: wrap;
+    /* スマホで折り返すようにしたい場合 */
+}
+
+@media screen and (max-width: 600px) {
+
+    .btn6,
+    .btn77 {
+        width: 100%;
+        /* スマホでは縦並びにする */
+    }
+}
+
+
+
+
+/* top-slideshow */
+.top_mainvisual {
+    position: relative;
+    width: auto;
+    height: 250px;
+    text-align: center;
+    margin: auto;
+    background-size: cover
+}
+
+.slideshow {
+    position: relative;
+    height: 570px;
+}
+
+.slideshow-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    animation: slideshow 9s infinite;
+    opacity: 0;
+}
+
+.slideshow-image:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.slideshow-image:nth-child(2) {
+    animation-delay: 3s;
+}
+
+.slideshow-image:nth-child(3) {
+    animation-delay: 6s;
+}
+
+@keyframes slideshow {
+    0% {
+        opacity: 0;
+    }
+
+    11.1% {
+        opacity: 1;
+    }
+
+    33.3% {
+        opacity: 1;
+    }
+
+    44.4% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.top_copy {
+    position: absolute;
+    top: 280px;
+    left: 20px;
+}
+
+.portfolio-semi {
+    font-size: small;
+}
+
+/* body {
+    text-align: center;
+} */
+
+#index-box {
+    text-align-last: left;
+}
+
+.profile-textbox {
+    text-align-last: left;
+    line-height: 2em;
+}
+
+/* Profilepage */
+.sub_ttl_p img {
+    width: 50%;
+    margin-top: 30px;
+}
+
+.profile-textbox {
+    margin: 50px auto;
+    text-align: center;
+}
+
+.challenges-bottom {
+    width: 100%;
+    opacity: 0.4;
+}
+
+.profile-bottom {
+    width: 100%;
+    opacity: 0.4;
+}
+
+.challenge-bottom {
+    width: 100%;
+    opacity: 0.4;
+}
+
+#challenge2-img {
+    text-align: center;
+}
+
+.challenge2_h2 {
+    text-align: center;
+}
+
+#textcaption {
+    margin: auto;
+    padding: auto;
+    align-items: center;
+    color: #8b9faf;
+    font-weight: normal;
+    line-height: 2em;
+}
+
+.img60 {
+    max-width: 60%;
+}
+
+.c3table {
+    max-width: 60%;
+}
+
+
+/* ↓【コンタクト（お問い合わせ）ページ】↓ */
+.contact {
+    text-align: center;
+    color: #462828;
+}
+
+/* contactの背景 */
+.contact_body {
+    background-color: #FFF;
+    background-image:
+        repeating-linear-gradient(60deg,
+            rgba(245, 235, 231, 0.801) 0px 1px,
+            rgba(253, 243, 243, 0.37) 1px 21px,
+            rgba(253, 249, 244, 0.603) 21px 61px,
+            rgba(247, 241, 245, 0.5) 61px 81px),
+        repeating-linear-gradient(-60deg,
+            rgba(231, 216, 227, 0.705) 0px 1px,
+            rgba(250, 241, 241, 0.5) 1px 21px,
+            rgba(247, 231, 231, 0.603) 21px 61px,
+            rgba(250, 246, 245, 0.623) 61px 81px);
 }
